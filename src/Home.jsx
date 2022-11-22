@@ -5,7 +5,6 @@ import SearchBar from './components/SearchBar';
 import SearchBarSkeleton from './components/SearchBarSkeleton';
 import Loading from './components/Loading';
 import Card from './components/Card';
-import ScrollBtn from './components/ScrollBtn';
 
 const Home = () => {
   const [countries, setCountries] = useState([]);
@@ -47,9 +46,6 @@ const Home = () => {
 
   return (
     <div className="container relative p-4 grid gap-4 mx-auto">
-      {/* Anchor */}
-      <div className="top-0 left-0 w-4 h-4 bg-black" id="top-anchor"></div>
-
       <div className="container grid gap-4 mx-auto">
         <div className="lg:max-w-lg">
           {!loading ? <SearchBar setQuery={setQuery} /> : <SearchBarSkeleton />}
@@ -77,8 +73,6 @@ const Home = () => {
           )}
         </div>
       </div>
-
-      <ScrollBtn />
     </div>
   );
 };
