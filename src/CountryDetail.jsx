@@ -114,31 +114,39 @@ const CountryDetail = () => {
               )}
 
               {/* Border info */}
-              {country.borders && (
-                <div className="flex gap-2">
-                  <AiFillInfoCircle />
+              <div className="flex gap-2">
+                <AiFillInfoCircle className="text-lg" />
 
-                  <p>
-                    <span>{country.name.common} </span>
+                <p className="flex-1">
+                  <span>{country.name.common} </span>
 
-                    <span>{`${
-                      country.landlocked ? 'is landlocked, it ' : ''
-                    }`}</span>
+                  {country.borders ? (
+                    <>
+                      <span>{`${
+                        country.landlocked ? 'is landlocked, it ' : ''
+                      }`}</span>
 
-                    <span>is surrounded by: </span>
+                      <span>is surrounded by: </span>
 
-                    {country.borders.map((border, key) => (
-                      <Link key={key} to={`/country/${border}`} relative="path">
-                        <span className="underline font-bold text-blue-600 hover:no-underline hover:opacity-75">
-                          {border}
-                        </span>
+                      {country.borders.map((border, key) => (
+                        <Link
+                          key={key}
+                          to={`/country/${border}`}
+                          relative="path"
+                        >
+                          <span className="underline font-bold text-blue-600 hover:no-underline hover:opacity-75">
+                            {border}
+                          </span>
 
-                        {key < country.borders.length - 1 ? `, ` : `.`}
-                      </Link>
-                    ))}
-                  </p>
-                </div>
-              )}
+                          {key < country.borders.length - 1 ? `, ` : `.`}
+                        </Link>
+                      ))}
+                    </>
+                  ) : (
+                    'has no bordering countries'
+                  )}
+                </p>
+              </div>
             </>
           ) : (
             // Skeleton
