@@ -4,7 +4,7 @@ const Footer = () => {
       Project by{' '}
       <a
         className="text-[#7700ff] font-bold hover:opacity-75 transition-opacity"
-        href="https://jameshollos.dev"
+        href="https://www.hollos.dev/"
         target="_blank"
         rel="noopener"
       >
